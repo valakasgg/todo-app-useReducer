@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Todo functionality using useReducer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See [Demo](https://valakasgg.github.io/todo-app-useReducer).
 
 ## Available Scripts
 

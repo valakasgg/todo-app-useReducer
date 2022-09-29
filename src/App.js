@@ -5,8 +5,15 @@ const ACTIONS = {
     ADD_TODO: 'add-todo'
 }
 
-function reducer(state, action) {
-    
+function reducer(todos, action) {
+    switch(action.type) {
+        case ACTIONS.ADD_TODO:
+            return [...todos, newTodo(action.payload.name)]
+    }
+}
+
+function newTodo(name) {
+    return { id: Date.now(), name: name, complete: false }
 }
 
 function App() {
@@ -16,9 +23,11 @@ function App() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch({ type: ACTIONS.ADD_TODO })
-        setName('');
+        dispatch({ type: ACTIONS.ADD_TODO, payload: { name } })
+        setName('')
     }
+
+    console.log(todos);
 
     return (
         <div className="form">
@@ -26,7 +35,8 @@ function App() {
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
             </form>
             <button>Go</button>
-            <div class="test">
+            
+            <div className="test">
                 {name}
             </div>
         </div>
